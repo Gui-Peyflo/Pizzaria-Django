@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>PizzaFast</title>
+
+{% load static %}
+    {% load bootstrap %}
+ <link rel="stylesheet" href="{% static 'pizza/style.css' %}">
+</head>
+<body>
+{% if acesso %}
+    <div class="container">
+    <div class="container">
+    <div class="container">
+        <div class="">
+
+            <div class="container">
+                <a class="" href="">
+                    <img src="{% static 'pizza/imgs/logoalter.png' %}" class="m-auto text-center img img-fluid">
+
+                </a><br>
+            </div>
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark container menu rounded">
+            <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#myNavbar"
+                aria-controls="myNavbar" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar" >
+                <div class="navbar-nav container col-6 mt-1" >
+                    <li class="nav-item" id="item">
+                    <a class="nav-link btn btn-lg mt-1 font-weight-bold drop " style="" href="/home/">Home</a>
+                    </li>
+                    <li class="nav-item active" >
+                        <a class="nav-link btn btn-lg mt-1 font-weight-bold drop" style="" href="/pedidos/">Cardápio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn btn-lg drop   mt-1 font-weight-bold" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase">
+                            Logar
+                        </a>
+                        <div class="dropdown-menu mt-1 submenu" aria-labelledby="navbarDropdown">
+
+                            <a type="button" class="btn  container font-weight-bold" href="/login/">
+                            Login
+                            </a>
+                        </div>
+                    </li>
+                     <li class="">
+                        <a class="nav-link btn btn-lg mt-1 font-weight-bold" src="{% static 'pizza/imgs/shop.svg' %}" style="width: 200%;" href="/pedidosFeitos/">
+                            <img src="{% static 'pizza/imgs/shop.svg' %}">
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{% url 'url_logout' %}" class="btn btn-danger drop">Sair</a>
+                    </li>
+
+                </div>
+            </div>
+        </nav>
+
+
+         <div class="container fundo mt-4 p-3">
+
+         <h1 class="text-center mt-4 mb-5 p-3 text-light">Escolha sua Pizza</h1>
+      <div class="container m-auto ">
+         <div class="row col-20 font-weight-bold">
+
+
+
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/calabresa.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="1" id="form1">
+                               {% csrf_token %}
+
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="pizza1" name="pizza"> Pizza de Calabresa </h5>
+                        <b>Descrição</b> Uma deliciosa combinação de Linguiça Calabresa e queijo
+                        <div  class="mt-1"><b>Preço: </b> R$ 20.00</div>
+
+                          <br><b class="" >Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select " required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <b class=" " >Bebidas: (+ R$ 5,00)</b>
+                                <select name="bebida" id=""  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select>
+                                <b class=" ">Quantidade de Bebidas:</b> <input type="number" class="form-control" name="nBeb" value="0" required>
+                                <b class=" ">Quantidade de Pizzas:</b> <input type="number" class="form-control" name="npiz" value="0" required>
+                                <input type="radio" class="botao" name="pizza" value="1" required>
+<br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/alho.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="2">
+                                {% csrf_token %}
+                                <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Alho Óleo </h5>
+                        <b>Descrição</b> Uma pizza totalmente de alho e Óleo
+                                    <div  class="mt-1"><b>Preço:</b> 20.00</div>
+
+                          <br><b class="d-flex mt-4">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida"  class="custom-select">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="2" required><br>
+                                    <br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/bacon.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="3">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title  text-center" id="nomePizza"  name="pizza"> Pizza de Bacon </h5>
+                        <b>Descrição</b> Molho de tomate, mussarela, bacon fatiado, cebola e orégano.
+                                <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id=""  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="3" required>
+<br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/brocolis.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="4">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title  text-center" id="nomePizza"  name="pizza"> Pizza de Brócolis </h5>
+                        <b>Descrição</b> Perfeita para quem gosta de legumes.
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                           <br><b class="d-flex mt-4">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida"  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+
+                                 <input type="radio" class="botao" name="pizza" value="4" required><br>
+<br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                            </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/camarao.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="5">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Camarão com Queijo </h5>
+                        <b>Descrição</b> Uma deliciosa combinação de camarão e queijo.
+                       <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id=""  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number"  class="form-control" name="npiz" value="0" required>
+
+                                 <input type="radio" class="botao" name="pizza" value="5" required>
+<br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/chocolate.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="6">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Chocolate </h5>
+                        <b>Descrição</b> A famosa pizza doce, recheada com chocolate.
+                         <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="6" required>
+<br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/chocolateBranco.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="7">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title  text-center" id="nomePizza"  name="pizza"> Pizza de Chocolate Branco </h5>
+                        <br><b>Descrição</b> Pizza doce recheada de chocolate branco.
+                        <br><b>Preço:</b> 20.00
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id=""  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="7" required>
+<br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/chocolateBrancoMM_YGCEnef.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="8">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Chocolate Branco com M&amp;Ms </h5>
+                        <b>Descrição</b> Pizza doce recheada de chocolate branco e M&amp;Ms.
+                       <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="8" required>
+                                <button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/coracao.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="9">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Coração de Galinha </h5>
+                        <b>Descrição</b> Pizza recheada com coração de galinha.
+                  <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                           <br><b class="d-flex mt-3">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="9" required><br>
+                                <br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/filé2_Jb3rQOO.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="10">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Filé com Cheddar </h5>
+                        <b>Descrição</b> Uma delicosa combinação com filé e cheddar.
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="10" required>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/frango.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="11">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Frango com Catupiry </h5>
+                        <b>Descrição</b> A famosa pizza de frango com catupiry.
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                           <br><b class="d-flex mt-2">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="11" required><br>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/lombo.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="12">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Lombo com Catupiry </h5>
+                        <b>Descrição</b> Especialmente recheada com lombo e catupiry
+                        <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="12" required>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/margerita.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="13">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Marguerita </h5>
+                        <b>Descrição</b> Uma massa da pizza com tomate, queijo e manjericão, cores da bandeira da Itália.
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <br><b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS"  class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="13" required>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/MM.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="14">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Chocolate com M&amp;Ms </h5>
+                        <b>Descrição</b> Uma deliciosa pizza doce com M&amp;Ms
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                           <br><b class="d-flex mt-4">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="14" required><br>
+                                <br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem;">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/mussarela.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="15">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Mussarela </h5>
+                        <b>Descrição</b> A Pizza de Mussarela é coberta com molho de tomate, queijo tipo mussarela, azeitonas pretas e orégan
+                       <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id=""  class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="botao" name="pizza" value="15" required>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/portuguesa.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="16">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza Portuguesa </h5>
+                        <b>Descrição</b> A famosa pizza portuguesa
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                           <br><b class="d-flex mt-4">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" name="pizza" value="16" required><br>
+                                <br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/queijos.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="17">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza de Quatro Queijos </h5>
+                        <b>Descrição</b> A deliciosa pizza recheada com quatro queijos
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                          <b>Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="m-auto" name="pizza" value="17" required>
+                                <br><button type="submit" class=" btn btn-primary container mt-5" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+                    <div class="row" style="float: left;">
+                    <div class="container mt-2">
+                    <div class="col-sm-4">
+                    <div class="col">
+
+                     <div class="container" style="width: 18rem; ">
+
+                        <div class="card ped" style="background-color: #D2B48C;  height: 50rem;">
+                            <b><img class="card-img-top" src="/media/media/vegetariana.png" data-toggle="modal" data-target="#foto1" style="height: 200px; width: 250px;float: left;" alt="Imagem responsiva"></b>
+
+                            <form method="POST" name="18">
+                              {% csrf_token %}
+                            <div class="card-body">
+                          <h5 class="card-title text-center" id="nomePizza"  name="pizza"> Pizza Vegetariana </h5>
+                        <b>Descrição</b> A pizza totalmente vegetariana.
+                          <div  class="mt-1"> <b>Preço:</b> 20.00</div>
+
+                        <br><b class="d-flex mt-4">Bordas (+ R$ 5,00)</b>
+
+                           <select name="bordas" id="bordaS" class="custom-select" required="">
+
+                                 <option name="borda" value="Sem Borda">Sem Borda</option>
+
+                                 <option name="borda" value="Chocolate">Chocolate</option>
+
+                                 <option name="borda" value="Queijo">Queijo</option>
+
+                                 <option name="borda" value="Catupiry">Catupiry</option>
+
+                                 <option name="borda" value="Cheddar">Cheddar</option>
+
+                          </select>
+                              <br><b>Bebidas: (+ R$ 5,00)</b>
+                          <br>
+                                <select name="bebida" id="" class="custom-select" required="">
+
+                                 <option name="bebi" value="Sem Bebida">Sem Bebida</option>
+
+                                 <option name="bebi" value="Coca-cola">Coca-cola</option>
+
+                                 <option name="bebi" value="Pepsi">Pepsi</option>
+
+                                 <option name="bebi" value="Dolly">Dolly</option>
+
+                                 <option name="bebi" value="Tubaina">Tubaina</option>
+
+                          </select><br>
+                                Quantidade de Bebidas: <input type="number" class="form-control" name="nBeb" value="0" required>
+                                Quantidade de Pizzas: <input type="number" class="form-control" name="npiz" value="0" required>
+                                 <input type="radio" class="m-auto" name="pizza" value="18" required><br>
+                                <br><button type="submit" class=" btn btn-primary container mt-4" style="background-color: #1E90FF; font-color: black;"><font color="black"><b>Pedir</b></font></button>
+                         </div>
+                            </form>
+                            </div>
+                           </div>
+                     </div>
+                     </div>
+                    </div>
+                    </div>
+
+
+
+
+    </div>
+</div>
+    </div>
+
+
+        {% else %}
+          <div class="container">
+    <div class="container">
+    <div class="container">
+        <div class="">
+
+            <div class="container">
+                <a class="" href="">
+                    <img src="{% static 'pizza/imgs/logoalter.png' %}" class="m-auto text-center img img-fluid">
+
+                </a><br>
+            </div>
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark container menu">
+            <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#myNavbar"
+                aria-controls="myNavbar" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar" >
+                <div class="navbar-nav container col-6 mt-1" >
+                    <li class="nav-item" id="item">
+                    <a class="nav-link btn btn-lg mt-1 font-weight-bold drop " style="" href="/home/">Home</a>
+                    </li>
+                    <li class="nav-item active" >
+                        <a class="nav-link btn btn-lg mt-1 font-weight-bold drop " style="" href="/pedidos/">Cardápio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link btn btn-lg drop mt-1 font-weight-bold" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase" >
+                            Logar
+                        </a>
+                        <div class="dropdown-menu mt-1 submenu" aria-labelledby="navbarDropdown">
+                            <a type="button" class="btn  container font-weight-bold" href="/logare/">
+                            Cadastrar
+                            </a>
+                            <a type="button" class="btn  container font-weight-bold" href="/login/">
+                            Login
+                            </a>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container fundo p-3 text-center mt-4">
+             <a href="{% url 'url_login' %}" class="btn bg-primary text-uppercase">Logar</a>
+             <a href="{% url 'url_logare' %}" class="btn bg-secondary text-uppercase">Cadastrar-se</a>
+
+        </div>
+        {% endif %}
+
+
+        <div class="container footer">
+
+
+            <div class="container mt-2"><h3>Contato</h3>
+                <b>PizzaFast</b><br>
+
+                <b>Rua:</b> <br>R. da Congregação, 529 - Parque Industrial Ramos de Freitas, <br>Embu das Artes - SP, 06816-000<br>
+                <b>Telefone:</b><br><p>11 4973-4910</p>
+            </div>
+            <div class="container">
+            <p><b>Email: pizzafast@pizzafast.com.br</b></p>
+            <b>Redes Sociais:</b><br>
+            <a href=""><img src="{% static 'pizza/imgs/instagram.svg' %}" class='img-fluid'></a>
+            <a href=""><img src="{% static 'pizza/imgs/facebook.svg' %}" class='img-fluid'></a>
+            </div>
+            <div class="container">
+                <h3 class="text-center">Localização</h3>
+            <iframe class="container mb-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.973097369311!2d-46.83813788538186!3d-23.641134470427378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfaacf201352ab%3A0x68c49ecf2cbe15ca!2sEtec%20de%20Embu%20das%20Artes!5e0!3m2!1spt-BR!2sbr!4v1594010118846!5m2!1spt-BR!2sbr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+           <br>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

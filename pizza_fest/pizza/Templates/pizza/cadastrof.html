@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>PizzaFast</title>
+
+{% load static %}
+    {% block content %}
+    {% load bootstrap %}
+ <link rel="stylesheet" href="{% static 'pizza/style.css' %}">
+</head>
+<body>
+
+    <div class="container">
+    <div class="container">
+    <div class="container">
+        <div class="">
+
+            <div class="container">
+                <a class="" href="">
+                    <img src="{% static 'pizza/imgs/logoalter.png' %}" class="m-auto text-center img img-fluid">
+
+                </a><br>
+            </div>
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark container menu rounded">
+            <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#myNavbar"
+                aria-controls="myNavbar" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="myNavbar" >
+                <div class="navbar-nav container col-6 mt-1" >
+                    <li class="nav-item" id="item">
+                    <a class="nav-link btn btn-lg   mt-1 font-weight-bold drop" style="" href="/home/">Home</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link btn btn-lg   mt-1 font-weight-bold drop" style="" href="/pedidos/">Cardápio</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link btn btn-lg drop   mt-1 font-weight-bold" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="flase" >
+                            Logar
+                        </a>
+                        <div class="dropdown-menu mt-1 submenu" aria-labelledby="navbarDropdown">
+                            <a type="button" class="btn  container font-weight-bold" href="/logare/">
+                            Cadastrar
+                            </a>
+
+                            <a type="button" class="btn container font-weight-bold" href="/login/">
+                            Login
+                            </a>
+                        </div>
+                    </li>
+
+                </div>
+            </div>
+        </nav>
+
+
+
+
+    <form method="POST" class="container fundo text-light font-weight-bold mt-4 p-3">
+        <h1 class="text-center">Cadastro Usuario</h1>
+        {% csrf_token %}
+        {{ formC|bootstrap }}
+        <button type="submit" class="btn btn-primary my-3">Salvar</button>
+        <a type="close" class="btn btn-danger my-3" href="/logare/" >Cancelar</a>
+    </form>
+
+        <div class="container footer">
+
+
+            <div class="container mt-2"><h3>Contato</h3>
+                <b>PizzaFast</b><br>
+
+                <b>Rua:</b> <br>R. da Congregação, 529 - Parque Industrial Ramos de Freitas, <br>Embu das Artes - SP, 06816-000<br>
+                <b>Telefone:</b><br><p>11 4973-4910</p>
+            </div>
+            <div class="container">
+            <p><b>Email: pizzafast@pizzafast.com.br</b></p>
+            <b>Redes Sociais:</b><br>
+            <a href=""><img src="{% static 'pizza/imgs/instagram.svg' %}" class='img-fluid'></a>
+            <a href=""><img src="{% static 'pizza/imgs/facebook.svg' %}" class='img-fluid'></a>
+            </div>
+            <div class="container">
+                <h3 class="text-center">Localização</h3>
+            <iframe class="container mb-2" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.973097369311!2d-46.83813788538186!3d-23.641134470427378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfaacf201352ab%3A0x68c49ecf2cbe15ca!2sEtec%20de%20Embu%20das%20Artes!5e0!3m2!1spt-BR!2sbr!4v1594010118846!5m2!1spt-BR!2sbr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+           <br>
+
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
